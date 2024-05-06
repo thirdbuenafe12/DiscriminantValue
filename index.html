@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Discriminant Calculator</title>
+</head>
+<body>
+    <h1> <p> Discriminant of Quadratic Equation </p> </h1>
+    <form id="discriminantForm">
+
+        <p><label for="a">Enter the value of a:</label><br>
+        <input type="text" id="a" name="a" required></p>
+        <p><label for="b">Enter the value of b:</label><br>
+        <input type="text" id="b" name="b" required></p>
+        <p><label for="c">Enter the value of c:</label><br>
+        <input type="text" id="c" name="c" required></p>
+
+        <p><input type="button" value="Calculate Discriminant" onclick="calculateDiscriminant()"></p>
+    </form>
+
+    <div id="discriminantResult"></div>
+
+    <script>
+        function calculateDiscriminant() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+      
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+                var discriminant = b * b - 4 * a * c;
+        
+                document.getElementById("discriminantResult").innerHTML = "<h2>The discriminant of the quadratic equation is: " + discriminant + "</h2>";
+                document.getElementById("discriminantForm").style.display = "none";
+            } else {
+                document.getElementById("discriminantResult").innerHTML = "<h2>Error: Please provide valid numeric coefficients for a, b, and c.</h2>";
+            }
+        }
+    </script>
+
+</body>
+</html>
